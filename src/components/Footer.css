@@ -1,8 +1,10 @@
-
 .footer-container {
-    background-color: rgb(19, 18, 18);
+    background-color: black;
     color: whitesmoke;
     padding: 2rem 4rem;
+    width: 100%; /* Ensure the footer takes up the full width */
+    clear: both; /* Clear any floats that might affect the footer positioning */
+    box-sizing: border-box;
   }
   
   .footer-columns {
