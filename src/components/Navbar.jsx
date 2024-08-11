@@ -1,25 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaSearch, FaShoppingCart } from 'react-icons/fa';
+import { FaSearch, FaShoppingCart, FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
+  const [searchVisible, setSearchVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const toggleSearch = () => {
+    setSearchVisible(!searchVisible);
+  };
+
+  const handleSearchInputChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // Here you would handle the search query, e.g., redirect to a search results page
+    console.log('Search query:', searchQuery);
+    // After submitting the search, you can reset the search field or hide it
+    setSearchVisible(false);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className='navbar'>
       <div className='navbar-logo'>
         <Link to="/">M-Food's</Link>
       </div>
-      <ul className='navbar-links'>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Menu</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-
-      </ul>
-      <div className='navbar-icons'>
-        <FaSearch className="navbar-icon" />
-        <FaShoppingCart className="navbar-icon" />
+      <div className='navbar-center'>
+        <ul className={`navbar-links ${menuOpen ? 'show' : ''}`}>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/menu">Menu</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
+      </div>
+      <div className="navbar-icons">
+        {searchVisible && (
+          <form onSubmit={handleSearchSubmit} className="search-form">
+            <input
+              type="text"
+              className="search-input"
+              value={searchQuery}
+              onChange={handleSearchInputChange}
+              placeholder="Search..."
+              autoFocus
+            />
+          </form>
+        )}
+        <FaSearch className="navbar-icon" onClick={toggleSearch} />
+        <FaShoppingCart className="navbar-icon cart-icon" />
         <Link to="/login" className="login-button">Login</Link>
+        <FaBars className="navbar-icon hamburger-icon" onClick={toggleMenu} />
       </div>
     </nav>
   );

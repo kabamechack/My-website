@@ -1,64 +1,206 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: black;
-    color: #fff;
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem; 
+  background-color: black;
+  color: #fff;
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+}
+
+.navbar-logo {
+  flex: 1;
+}
+
+.navbar-logo a {
+  color: #fff;
+  font-size: 2.5rem;
+  text-decoration: none;
+  font-weight: bold; 
+}
+
+.navbar-center {
+  flex: 2;
+  display: flex;
+  justify-content: center; 
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  font-weight: bold;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar-icons {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+}
+
+.navbar-icon {
+  margin: 0 0.5rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+.navbar-icon.cart-icon {
+  margin-right: 2rem; /* Increase space between the shopping cart and login button */
+}
+
+.hamburger-icon {
+  display: none; 
+}
+
+.search-input {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+}
+
+.login-button {
+  color: #fff;
+  background-color: #007bff; 
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 1rem;
+  max-width: 120px; 
+  white-space: nowrap; 
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem; /* Space between search input and the next icon */
+}
+
+.search-input {
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  width: 150px; /* Adjust the width as needed */
+  transition: width 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  outline: none;
+  width: 200px; /* Expand width on focus */
+}
+
+/* Responsive Adjustments */
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem; /* Reset padding for smaller screens */
   }
-  
-  .navbar-logo a {
-    color: #fff;
-    font-size: 2.5rem;
-    text-decoration: none;
-    font-weight: bold; 
+
+  .navbar-center {
+    justify-content: flex-start; /* Align links to the left on smaller screens */
+    width: 100%;
   }
-  
+
   .navbar-links {
-    display: flex;
-    list-style: none;
-    font-weight: bold; 
+    flex-direction: column;
+    align-items: flex-start;
+    display: none; /* Hide links initially */
+    width: 100%;
+    margin-top: 1rem;
   }
-  
-  .navbar-links li {
-    margin: 0 1rem;
+
+  .navbar-links.show {
+    display: flex; /* Show links when the menu is open */
   }
-  
-  .navbar-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
+
   .navbar-icons {
-    display: flex;
-    align-items: center;
-    margin-right: 70px;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 0; /* Remove right margin */
   }
-  
-  .navbar-icon {
-    margin: 0 0.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
+
+  .hamburger-icon {
+    display: block; /* Show the hamburger icon on tablets and smaller */
+    margin-left: auto;
   }
-  
+
   .login-button {
-    color: #fff;
-    background-color: #007bff; /* Bright Blue */
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 1rem;
+    width: auto; /* Reset to default size */
+    max-width: 120px; /* Ensure the button does not stretch too wide */
+    white-space: nowrap; /* Prevent text wrapping inside the button */
+    margin: 1rem 0;
   }
-  
-  .login-button:hover {
-    background-color: #0056b3; /* Darker Blue for hover effect */
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem; /* Reset padding for smaller screens */
   }
-  
+
+  .navbar-center {
+    justify-content: flex-start; /* Align links to the left on mobile screens */
+    width: 100%;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: flex-start;
+    display: none; /* Hide links initially */
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .navbar-links.show {
+    display: flex; /* Show links when the menu is open */
+  }
+
+  .navbar-icons {
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .navbar-icon {
+    font-size: 2.5rem; /* Smaller icons on mobile */
+  }
+
+  .hamburger-icon {
+    display: block; /* Show the hamburger icon on mobile */
+    margin-left: auto;
+  }
+
+  .login-button {
+    width: auto; /* Reset to default size */
+    max-width: 120px; /* Ensure the button does not stretch too wide */
+    white-space: nowrap; /* Prevent text wrapping inside the button */
+    margin: 1rem 0;
+  }
+}
