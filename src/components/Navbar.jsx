@@ -18,9 +18,7 @@ const Navbar = () => {
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // Here you would handle the search query, e.g., redirect to a search results page
     console.log('Search query:', searchQuery);
-    // After submitting the search, you can reset the search field or hide it
     setSearchVisible(false);
   };
 

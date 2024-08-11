@@ -58,7 +58,7 @@
 }
 
 .navbar-icon.cart-icon {
-  margin-right: 2rem; /* Increase space between the shopping cart and login button */
+  margin-right: 2rem; 
 }
 
 .hamburger-icon {
@@ -92,7 +92,7 @@
 .search-form {
   display: flex;
   align-items: center;
-  margin-right: 1rem; /* Space between search input and the next icon */
+  margin-right: 1rem; 
 }
 
 .search-input {
@@ -103,13 +103,13 @@
   font-size: 1rem;
   background-color: #fff;
   color: #333;
-  width: 150px; /* Adjust the width as needed */
+  width: 150px; 
   transition: width 0.3s ease-in-out;
 }
 
 .search-input:focus {
   outline: none;
-  width: 200px; /* Expand width on focus */
+  width: 200px;
 }
 
 /* Responsive Adjustments */
