@@ -2,6 +2,7 @@ import React from 'react';
 import './About.css';
 import chicken from '../assets/BlackChicken.png'; 
 import Footer from '../components/Footer'; 
+import CountUp from 'react-countup';
 
 const About = () => {
   return (
@@ -16,15 +17,21 @@ const About = () => {
           <p>We welcome our guests with open arms and provide the best service possible. Here we attach a brief data about our Wistara Coffee, known for its exceptional taste and quality.</p>
           <div className="about-stats">
             <div className="stat">
-              <h3>15k+</h3>
+              <h3>
+                <CountUp start={0} end={15000} duration={3} separator="," />+
+              </h3>
               <p>Happy Customers</p>
             </div>
             <div className="stat">
-              <h3>10+</h3>
+              <h3>
+                <CountUp start={0} end={10} duration={3} />+
+              </h3>
               <p>Award Wins</p>
             </div>
             <div className="stat">
-              <h3>30+</h3> {/* Corrected closing tag */}
+              <h3>
+                <CountUp start={0} end={30} duration={3} />+
+              </h3>
               <p>Food Menu Items</p>
             </div>
           </div>
