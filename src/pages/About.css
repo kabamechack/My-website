@@ -58,45 +58,15 @@
 
 .stat {
   text-align: center;
-  animation: fadeInUp 1s ease-in-out; /* Optional animation for appearance */
 }
 
 .stat h3 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #007bff;
   margin: 0;
-  font-weight: bold;
-  animation: bounceIn 1.5s; /* Bounce effect */
 }
 
 .stat p {
   font-size: 1rem;
   color: whitesmoke;
-}
-
-/* Keyframes for the animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.3);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  80% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
 }

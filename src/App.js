@@ -6,30 +6,29 @@ import Menu from './pages/Menu';
 import About from './pages/About';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
+import Cart from './components/Cart'; // New import
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  // Function to add an item to the cart
   const addToCart = (item) => {
     setCartItems([...cartItems, item]);
   };
 
-  // Function to remove an item from the cart
-  const removeFromCart = (index) => {
-    const newCartItems = cartItems.filter((_, i) => i !== index);
-    setCartItems(newCartItems);
+  const removeFromCart = (itemId) => {
+    setCartItems(cartItems.filter(item => item.id !== itemId));
   };
 
   return (
     <Router>
-      <Navbar cartItems={cartItems} removeFromCart={removeFromCart} />
+      <Navbar cartCount={cartItems.length} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu addToCart={addToCart} />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} /> {/* New route */}
       </Routes>
     </Router>
   );
