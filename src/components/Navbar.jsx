@@ -3,27 +3,21 @@ import { Link } from 'react-router-dom';
 import { FaSearch, FaShoppingCart, FaBars } from 'react-icons/fa';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ cartItems, removeFromCart }) => {
   const [searchVisible, setSearchVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [cartVisible, setCartVisible] = useState(false);
 
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
   };
 
-  const handleSearchInputChange = (event) => {
-    setSearchQuery(event.target.value);
-  };
-
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    console.log('Search query:', searchQuery);
-    setSearchVisible(false);
-  };
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const toggleCart = () => {
+    setCartVisible(!cartVisible);
   };
 
   return (
@@ -41,19 +35,35 @@ const Navbar = () => {
       </div>
       <div className="navbar-icons">
         {searchVisible && (
-          <form onSubmit={handleSearchSubmit} className="search-form">
+          <form onSubmit={(e) => e.preventDefault()} className="search-form">
             <input
               type="text"
               className="search-input"
-              value={searchQuery}
-              onChange={handleSearchInputChange}
               placeholder="Search..."
               autoFocus
             />
           </form>
         )}
         <FaSearch className="navbar-icon" onClick={toggleSearch} />
-        <FaShoppingCart className="navbar-icon cart-icon" />
+        <div className="cart-container">
+          <FaShoppingCart className="navbar-icon cart-icon" onClick={toggleCart} />
+          {cartVisible && (
+            <div className="cart-dropdown">
+              {cartItems.length === 0 ? (
+                <p>Your cart is empty</p>
+              ) : (
+                <ul>
+                  {cartItems.map((item, index) => (
+                    <li key={index}>
+                      {item.name} - ${item.price}
+                      <button onClick={() => removeFromCart(index)}>Remove</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
         <Link to="/login" className="login-button">Login</Link>
         <FaBars className="navbar-icon hamburger-icon" onClick={toggleMenu} />
       </div>
