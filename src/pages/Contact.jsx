@@ -1,7 +1,6 @@
 import React from 'react';
 import './Contact.css';
 import contactImage from '../assets/contactImage.png'; 
-import Footer from '../components/Footer'; 
 
 const Contact = () => {
   return (
@@ -28,7 +27,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

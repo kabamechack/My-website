@@ -2,7 +2,6 @@ import React from 'react';
 import './Home.css';
 import taste from '../assets/taste.avif';
 import { FaArrowRight } from 'react-icons/fa';
-import Footer from '../components/Footer'; 
 
 const Home = () => {
   return (
@@ -25,7 +24,6 @@ const Home = () => {
           <img src={taste} alt="Foodie's Delight" />
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

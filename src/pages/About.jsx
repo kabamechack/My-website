@@ -1,7 +1,6 @@
 import React from 'react';
 import './About.css';
 import chicken from '../assets/BlackChicken.png'; 
-import Footer from '../components/Footer'; 
 import CountUp from 'react-countup';
 
 const About = () => {
@@ -37,7 +36,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

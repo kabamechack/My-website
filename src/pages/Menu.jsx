@@ -6,7 +6,6 @@ import item3 from '../assets/item3.jpeg';
 import item4 from '../assets/item4.jpg';
 import item5 from '../assets/item5.webp';
 import item6 from '../assets/item6.webp';
-import Footer from '../components/Footer';
 
 const Menu = ({ addToCart }) => {
   const [showMore, setShowMore] = useState(false);
@@ -57,7 +56,6 @@ const Menu = ({ addToCart }) => {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

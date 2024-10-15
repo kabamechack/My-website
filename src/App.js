@@ -6,7 +6,9 @@ import Menu from './pages/Menu';
 import About from './pages/About';
 import Login from './pages/Login';
 import Contact from './pages/Contact';
-import Cart from './components/Cart'; // New import
+import Cart from './components/Cart';
+import Testimonials from './components/Testimonials'; 
+import Footer from './components/Footer'; 
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -23,13 +25,14 @@ function App() {
     <Router>
       <Navbar cartCount={cartItems.length} />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu addToCart={addToCart} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} /> {/* New route */}
+        <Route path="/" element={<><Home /><Testimonials /></>} />
+        <Route path="/menu" element={<><Menu addToCart={addToCart} /><Testimonials /></>} />
+        <Route path="/about" element={<><About /><Testimonials /></>} />
+        <Route path="/contact" element={<><Contact /><Testimonials /></>} />
+        <Route path="/login" element={<><Login /><Testimonials /></>} />
+        <Route path="/cart" element={<><Cart cartItems={cartItems} removeFromCart={removeFromCart} /><Testimonials /></>} />
       </Routes>
+      <Footer /> {/* Place Footer here at the bottom */}
     </Router>
   );
 }
